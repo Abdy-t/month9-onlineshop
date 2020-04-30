@@ -1,0 +1,36 @@
+.container {
+    max-width: 1280px;
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-column {
+    flex-flow: column;
+}
+
+.flex-v-center {
+    align-items: center;
+}
+
+.box {
+    flex-basis: 256px;
+    height: 256px;
+}
+
+.box-128 {
+    flex-basis: 128px;
+    height: 128px;
+}
+
+.food-icon {
+    width: 128px;
+    padding-bottom: 20px;
+}
