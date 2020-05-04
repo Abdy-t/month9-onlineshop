@@ -1,4 +1,4 @@
-package com.example.shop.model;
+package com.example.shop.domain.brand;
 
 import lombok.*;
 
@@ -22,7 +22,7 @@ public class Brand {
 
     @Column(length = 128) private String icon;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand") @OrderBy("name ASC")
-    List<Product> products;
+//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand") @OrderBy("name ASC")
+//    List<Product> products;
 
 }

@@ -11,7 +11,7 @@
     <groupId>com.example</groupId>
     <artifactId>shop</artifactId>
     <name>shop</name>
-    <description>Demo project for Spring Boot</description>
+    <description>OnlineShop project for Spring Boot</description>
 
     <properties>
         <java.version>11</java.version>

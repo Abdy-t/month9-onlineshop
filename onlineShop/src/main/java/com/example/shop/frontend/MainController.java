@@ -1,6 +1,8 @@
-package com.example.shop.controller;
+package com.example.shop.frontend;
 
-import com.example.shop.repository.BrandRepository;
+import com.example.shop.domain.brand.BrandRepository;
+import com.example.shop.domain.brand.BrandService;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,20 +10,22 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
+@RequestMapping
+@AllArgsConstructor
 public class MainController {
 
-    @Autowired
-    BrandRepository brandRepository;
+    private final BrandService brandService;
+
 
     @RequestMapping("/")
     public String getMainPage(Model model) {
-        model.addAttribute("brands", brandRepository.findAll());
+        model.addAttribute("brands", brandService.findAll());
         return "index";
     }
 
     @RequestMapping("/jql/{name}")
     public String getMainPageJql(Model model, @PathVariable("name") String name) {
-        model.addAttribute("brands", brandRepository.getByName(name));
+        model.addAttribute("brands", brandService.getByName(name));
         return "index";
     }
 

@@ -1,5 +1,7 @@
-package com.example.shop.model;
+package com.example.shop.domain.product;
 
+import com.example.shop.domain.brand.Brand;
+import com.example.shop.domain.category.Category;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,7 +26,6 @@ public class Product {
     private float price;
 
     @ManyToOne(fetch = FetchType.LAZY)
-
     private Brand brand;
 
     @ManyToOne(fetch = FetchType.LAZY)

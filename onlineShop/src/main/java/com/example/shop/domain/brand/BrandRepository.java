@@ -1,15 +1,21 @@
-package com.example.shop.repository;
+package com.example.shop.domain.brand;
 
 
 
-import com.example.shop.model.Brand;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface BrandRepository extends JpaRepository<Brand, Integer> {
 
     @Query("select p from Brand as p where p.name like CONCAT(:name, '%')")
     List<Brand> getByName(String name);
+
+//    Page<Brand> findAllByPlaceId(int placeId, Pageable pageable);
 }
