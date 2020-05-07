@@ -6,7 +6,6 @@
     </head>
     <body>
         <h1>Содержимое страницы</h1>
-
         <ul>
         <#list brands as brand>
             <li>

@@ -25,13 +25,14 @@ public class Product {
     @Column
     private float price;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Brand brand;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     private Category category;
 
     @Column
     private int qty;
+
 
 }
