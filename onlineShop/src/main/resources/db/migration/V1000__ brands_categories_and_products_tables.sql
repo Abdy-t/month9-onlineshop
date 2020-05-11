@@ -19,6 +19,7 @@ CREATE TABLE `products` (
     `price` float not null,
     `brand_id` int not null,
     `category_id` int not null,
+    `qty` int not null,
     PRIMARY KEY (`id`),
     CONSTRAINT `fk_brand` FOREIGN KEY (`brand_id`) REFERENCES `brands` (`id`),
     CONSTRAINT `fk_category` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`)

@@ -19,8 +19,8 @@ public class BrandService {
     }
 
     public BrandDTO getBrand(int id) {
-        Brand place = brandRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("brand", id));
-        return BrandDTO.from(place);
+        Brand brand = brandRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("brand", id));
+        return BrandDTO.from(brand);
     }
 
     public List<Brand> findAll() {

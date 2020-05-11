@@ -10,7 +10,7 @@
         <#if products??>
             <#list products as product>
                 <div class="flex flex-column box flex-v-center">
-                    <img class="food-icon" src="/images/${product.image}" alt="${product.name}">
+                    <img class="food-icon" src="images/${product.image}" alt="${product.name}">
                     <p>${product.name}</p>
                     <p>${product.price}</p>
                     <p>${product.brand}</p>

@@ -19,19 +19,26 @@ const constructGetUrl = (url, queryParams) => {
 
 (function loadPlacesPageable() {
 
-    const placeTemplate = (listItem) => `
-    <div class="flex flex-column box flex-v-center">
-            <a href="/places/${listItem.id}">
-                <div class="flex flex-column flex-v-center box-128">
-                    <img class="food-icon" src="${listItem.imagePath}" alt="${listItem.name}">
-                    ${listItem.name}
-                </div>
-            </a>
-        </div>
-    `.trim();
+    const placeTemplate = (listItem) => {
+        const template = `<div class="flex flex-column box flex-v-center">
+                    <a href="/brand/${listItem.id}" class="btn" style="background-color: #ffd401">
+                        <div class="flex flex-column flex-v-center box-128">
+                            <img class="item-icon" src="images/${listItem.icon}" alt="${listItem.name}">
+                            ${listItem.name}
+                        </div>
+                    </a>
+                </div> 
+        `;
+
+        const elem = document.createElement('div');
+        elem.innerHTML = template.trim();
+
+        // return inner div with classes flex etc
+        return elem.children[0];
+    };
 
     const fetchPlaces = async (page, size) => {
-        const placesPath = `${serverPath}/places?page=${page}&size=${size}`;
+        const placesPath = `${serverPath}/brands?page=${page}&size=${size}`;
         const data = await fetch(placesPath, {cache: 'no-cache'});
         return data.json();
     };
@@ -51,9 +58,7 @@ const constructGetUrl = (url, queryParams) => {
 
             const list = document.getElementById('itemList');
             for (let item of data) {
-                const li = document.createElement('div');
-                li.innerHTML = placeTemplate(item);
-                list.append(li.children[0]);
+                list.append(placeTemplate(item));
             }
 
             loadNextElement.addEventListener('click', loadNextPlacesGenerator(loadNextElement, page + 1), {once: true});
