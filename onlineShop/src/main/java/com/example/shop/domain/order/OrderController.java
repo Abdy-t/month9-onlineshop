@@ -82,18 +82,6 @@ public class OrderController {
         } catch (Exception ex) {
 
         }
-
-//        if (session != null) {
-//            var attr = session.getAttribute(Constants.ORDER_ID);
-//            if (attr == null) {
-//                session.setAttribute(Constants.ORDER_ID, new ArrayList<String>());
-//            }
-//            try {
-//                var list = (List<String>) session.getAttribute(Constants.ORDER_ID);
-//                list.add(value);
-//            } catch (ClassCastException ignored) {
-//            }
-//        }
         return "redirect:/product/"+value;
     }
 }
