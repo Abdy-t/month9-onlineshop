@@ -18,11 +18,8 @@ import java.util.List;
 @AllArgsConstructor
 public class ReviewService {
     private final ReviewRepository reviewRepository;
-    private final OrderRepository orderRepository;
-    private final CartRepository cartRepository;
     private final CustomerRepository customerRepository;
     private final ProductRepository productRepository;
-    private final CartStoryRepository cartStoryRepository;
 
     public void addComment(String idProduct, String comment, String userEmail) {
         var newComment = Review.builder()
@@ -38,9 +35,6 @@ public class ReviewService {
         var list = reviewRepository.getAllByProduct_Id(idProduct);
         List<ReviewDTO> reviewDTOS = new ArrayList<>();
         for (Review r : list) {
-//            Product a = productRepository.getById(o.getProduct().getId());
-//            a.setQty(o.getQty());
-//            a.setPrice(o.getPrice());
             reviewDTOS.add(ReviewDTO.from(r));
         }
         return reviewDTOS;

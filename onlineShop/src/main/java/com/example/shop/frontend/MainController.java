@@ -3,7 +3,6 @@ package com.example.shop.frontend;
 import com.example.shop.domain.brand.BrandDTO;
 import com.example.shop.domain.brand.BrandService;
 import com.example.shop.domain.customer.*;
-import com.example.shop.domain.order.ReviewDTO;
 import com.example.shop.domain.order.ReviewService;
 import com.example.shop.domain.product.ProductDTO;
 import com.example.shop.domain.product.ProductService;
@@ -26,9 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
 
@@ -65,21 +61,6 @@ public class MainController {
     }
     @GetMapping
     public String index(Model model, Pageable pageable, HttpServletRequest uriBuilder, HttpSession session) {
-//        var map = new HashMap<String, Object>();
-//        map.put("Идентификатор сессии", session.getId());
-//
-//        session.getAttributeNames()
-//                .asIterator()
-//                .forEachRemaining(key -> map.put(key, session.getAttribute(key).toString()));
-//        for (String s: map.keySet()
-//        ) {
-//            System.out.println(s);
-//        }
-//        model.addAttribute("sessionAttributes", map);
-
-//        Page<ProductDTO> items = productService.getProducts(pageable);
-//        String uri = uriBuilder.getRequestURI();
-//        constructPageable(items, propertiesService.getDefaultPageSize(), model, uri);
         return "index";
     }
     @GetMapping("/search")
@@ -215,7 +196,6 @@ public class MainController {
         PasswordResetToken pToken = resetRepo.findByToken(token).get();
         Customer customer = repository.findById(pToken.getCustomer().getId()).get();
         customer.setPassword(new BCryptPasswordEncoder().encode(newPassword));
-
         repository.save(customer);
 
         return "redirect:/login";

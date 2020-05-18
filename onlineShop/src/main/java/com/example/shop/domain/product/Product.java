@@ -36,8 +36,6 @@ public class Product {
     @Column
     private int qty;
 
-//    @ManyToMany(mappedBy = "products")
-//    private Set<Cart> carts;
     @OneToMany(mappedBy = "product")
     private Set<CartStory> cartStories;
 

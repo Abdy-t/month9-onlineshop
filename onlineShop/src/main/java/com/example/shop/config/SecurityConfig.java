@@ -25,8 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED);
         http.formLogin()
                 .loginPage("/login")
                 .failureUrl("/login?error=true");

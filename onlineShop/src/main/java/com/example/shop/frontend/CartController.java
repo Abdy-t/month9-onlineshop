@@ -1,7 +1,6 @@
 package com.example.shop.frontend;
 
 import com.example.shop.domain.cart.CartService;
-import com.example.shop.domain.product.Product;
 import com.example.shop.domain.product.ProductDTO;
 import com.example.shop.domain.product.ProductService;
 import lombok.AllArgsConstructor;

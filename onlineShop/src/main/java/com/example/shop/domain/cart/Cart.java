@@ -24,13 +24,5 @@ public class Cart {
 
     @OneToMany(mappedBy = "cart")
     private Set<CartStory> cartStories;
-//    @ManyToMany
-//    @JoinTable(
-//            name = "cart_and_product",
-//            joinColumns = @JoinColumn(name = "cart_id"),
-//            inverseJoinColumns = @JoinColumn(name = "product_id"))
-//    private Set<Product> products;
-//
-//    @JoinTable(name = "cart_and_product", joinColumns = @JoinColumn(name = "qty"))
-//    private int qty;
+
 }

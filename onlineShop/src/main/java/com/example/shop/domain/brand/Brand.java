@@ -18,7 +18,4 @@ public class Brand {
 
     @Column(length = 128) private String icon;
 
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "brand") @OrderBy("name ASC")
-//    List<Product> products;
-
 }
