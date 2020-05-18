@@ -3,6 +3,8 @@ package com.example.shop.frontend;
 import com.example.shop.domain.brand.BrandDTO;
 import com.example.shop.domain.brand.BrandService;
 import com.example.shop.domain.customer.*;
+import com.example.shop.domain.order.ReviewDTO;
+import com.example.shop.domain.order.ReviewService;
 import com.example.shop.domain.product.ProductDTO;
 import com.example.shop.domain.product.ProductService;
 import com.example.shop.exception.ResourceNotFoundException;
@@ -39,6 +41,7 @@ public class MainController {
     private final ProductService productService;
     private final CustomerService customerService;
     private final PropertiesService propertiesService;
+    private final ReviewService reviewService;
     private final CustomerRepository repository;
     private final ResetRepository resetRepo;
 
@@ -103,6 +106,8 @@ public class MainController {
     @GetMapping("/product/{product_id}")
     public String brandPage(@PathVariable int product_id, Model model) {
         ProductDTO productDTO = productService.getProduct(product_id);
+        var reviewDTO = reviewService.getReviews(product_id);
+        productDTO.setReview(reviewDTO);
         model.addAttribute("product", productDTO);
         return "product-page";
     }

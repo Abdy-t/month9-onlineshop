@@ -9,6 +9,16 @@ styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.co
         <p>Quantity: ${product.qty}</p>
         <p>Brand: ${product.brand.name}</p>
         <p>Category: ${product.category.name}</p>
+        </br>
+        <label>-- Comment block -- </label>
+        <#list product.review as listItem>
+            <div class="flex flex-column box flex-v-center">
+                    <div class="flex flex-column flex-v-center box-128">
+                        <p style="color:blueviolet">${listItem.userEmail}</p>
+                        <p style="margin-right: auto">${listItem.comment}</p>
+                    </div>
+            </div>
+        </#list>
     </div>
     <form action="/cart/add" method="post" id="cart-form">
         <#if _csrf??>
@@ -20,7 +30,7 @@ styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.co
             <button type="submit" name="value" value="${product.id}">Add to cart</button>
         </div>
         <div>
-            <a href="/cart" class="value-cell">Посмотреть корзину</a>
+            <a href="/cart" class="value-cell">Show cart</a>
         </div>
     </form>
 </@main.renderWith>

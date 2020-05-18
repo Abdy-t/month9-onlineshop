@@ -2,7 +2,10 @@ package com.example.shop.domain.product;
 
 import com.example.shop.domain.brand.BrandDTO;
 import com.example.shop.domain.category.CategoryDTO;
+import com.example.shop.domain.order.ReviewDTO;
 import lombok.*;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -18,6 +21,7 @@ public class ProductDTO {
     private BrandDTO brand;
     private CategoryDTO category;
     private int qty;
+    private List<ReviewDTO> review;
 
     public static ProductDTO from(Product product) {
         return builder()
@@ -28,6 +32,7 @@ public class ProductDTO {
                 .brand(BrandDTO.from(product.getBrand()))
                 .category(CategoryDTO.from(product.getCategory()))
                 .qty(product.getQty())
+                .review(null)
                 .build();
     }
 }

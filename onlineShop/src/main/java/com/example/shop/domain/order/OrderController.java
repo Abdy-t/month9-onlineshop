@@ -4,7 +4,6 @@ import com.example.shop.domain.product.ProductDTO;
 import com.example.shop.domain.product.ProductService;
 import com.example.shop.frontend.Constants;
 import lombok.AllArgsConstructor;
-import org.aspectj.weaver.ast.Or;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -22,6 +21,7 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 public class OrderController {
+    private final ReviewService reviewService;
     private final OrderService orderService;
     private final ProductService productService;
 
@@ -71,5 +71,29 @@ public class OrderController {
             }
         }
         return "redirect:/order";
+    }
+
+    @PostMapping("/order/review")
+    public String addComment(@RequestParam String value, @RequestParam String comment, HttpSession session) {
+        try {
+            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            UserDetails userDetails = (UserDetails) authentication.getPrincipal();
+            reviewService.addComment(value, comment, userDetails.getUsername());
+        } catch (Exception ex) {
+
+        }
+
+//        if (session != null) {
+//            var attr = session.getAttribute(Constants.ORDER_ID);
+//            if (attr == null) {
+//                session.setAttribute(Constants.ORDER_ID, new ArrayList<String>());
+//            }
+//            try {
+//                var list = (List<String>) session.getAttribute(Constants.ORDER_ID);
+//                list.add(value);
+//            } catch (ClassCastException ignored) {
+//            }
+//        }
+        return "redirect:/product/"+value;
     }
 }

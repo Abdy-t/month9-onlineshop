@@ -19,6 +19,16 @@ styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts
                     <p>Category: ${item.category.name}</p>
                     <p>Quantity: ${item.qty}</p>
                  </div>
+                <form action="/order/review" method="post" id="cart-form">
+                    <#if _csrf??>
+                        <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+                    </#if>
+                    <div>
+                        <label for="quantity">Comment:</label>
+                        <input type="text" id="comment" name="comment">
+                        <button type="submit" name="value" value="${item.id}">SEND</button>
+                    </div>
+                </form>
             </#list>
             </br>
         <#else>
