@@ -7,7 +7,7 @@ styles=["css/bootstrap.min.css", "css/style.css", "https://fonts.googleapis.com/
     <div class="flex flex-wrap" id="itemList">
         <#list items as listItem>
             <div class="flex flex-column box flex-v-center">
-                <a href="/brand/${listItem.id}" class="btn" style="background-color: #ffd401">
+                <a href="/brand/${listItem.id}" class="btn" style="background-color: #cdfff5">
                     <div class="flex flex-column flex-v-center box-128">
                         <img class="item-icon" src="images/${listItem.icon}" alt="${listItem.name}">
                         ${listItem.name}

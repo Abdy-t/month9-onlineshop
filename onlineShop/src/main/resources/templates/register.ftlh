@@ -27,6 +27,8 @@ styles=["css/bootstrap.min.css", "css/style.css", "https://fonts.googleapis.com/
                     <input type="password" name="password" class="form-control" placeholder="Password"  value="" required>
                 </label>
             </div>
+            <div class="g-recaptcha" data-sitekey="6LfeMvcUAAAAAI3vO7wjoBgm3sksNNv38pREfCeA"></div>
+            <div>
             <div>
                 <button type="submit" class="send btn btn-secondary">Registration</button>
             </div>

@@ -19,7 +19,7 @@ public class ProductDTO {
     private CategoryDTO category;
     private int qty;
 
-    static ProductDTO from(Product product) {
+    public static ProductDTO from(Product product) {
         return builder()
                 .id(product.getId())
                 .name(product.getName())
@@ -27,6 +27,7 @@ public class ProductDTO {
                 .price(product.getPrice())
                 .brand(BrandDTO.from(product.getBrand()))
                 .category(CategoryDTO.from(product.getCategory()))
+                .qty(product.getQty())
                 .build();
     }
 }

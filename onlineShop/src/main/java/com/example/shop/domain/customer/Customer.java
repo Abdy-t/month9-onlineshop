@@ -1,5 +1,6 @@
 package com.example.shop.domain.customer;
 
+import com.example.shop.domain.cart.Cart;
 import lombok.*;
 
 import javax.persistence.*;
@@ -43,4 +44,8 @@ public class Customer {
     @Column(length = 128)
     @Builder.Default
     private String role = "USER";
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cart", referencedColumnName = "id")
+    private Cart cart;
 }

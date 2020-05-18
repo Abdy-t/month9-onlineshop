@@ -3,7 +3,7 @@ package com.example.shop.domain.brand;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+
 @Data @Builder
 @AllArgsConstructor(access = AccessLevel.PACKAGE)
 @NoArgsConstructor

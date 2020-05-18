@@ -12,10 +12,6 @@ import java.util.List;
 public class ProductService {
     private final ProductRepository productRepository;
 
-//    public List<Product> getSearchResult(String name, float min, float max, String brand, String category) {
-//        return productRepository.getBy(name, min, max, brand, category);
-//
-//    }
 
     public List<Product> findAll() {
         return productRepository.findAll();

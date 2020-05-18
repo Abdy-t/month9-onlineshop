@@ -7,6 +7,7 @@ CREATE TABLE `customers` (
                              `fullname` varchar(128) NOT NULL default ' ',
                              `enabled` boolean NOT NULL default true,
                              `role` varchar(16) NOT NULL default 'USER',
+                             `cart` int not null,
                              PRIMARY KEY (`id`),
                              UNIQUE INDEX `email_unique` (`email` ASC)
 );

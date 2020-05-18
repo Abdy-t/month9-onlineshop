@@ -17,7 +17,7 @@ styles=["css/bootstrap.min.css", "css/style.css", "https://fonts.googleapis.com/
         <div class="form-group">
             <label for="exampleInputEmail1" class="flex flex-v-center">
                 <p class="label-input-text">Email address:</p>
-                <input type="email" name="email" class="form-control" placeholder="Email address" aria-describedby="emailHelp" required value="${(dto.email)!''}" >
+                <input type="email" name="username" class="form-control" placeholder="Email address" aria-describedby="emailHelp" required value="${(dto.email)!''}" >
             </label>
         </div>
         <div class="form-group">
@@ -30,6 +30,9 @@ styles=["css/bootstrap.min.css", "css/style.css", "https://fonts.googleapis.com/
             <button type="submit" class="send btn btn-secondary">Login</button>
         </div>
     </form>
+    <div class="flex flex-justify-content-center">
+        <a class="flex box-128" href="/forgot-password"> Забыли Пароль </a>
+    </div>
     <div class="bottom-box">
         <a href="/">На главную страницу</a>
     </div>

@@ -21,7 +21,7 @@ const constructGetUrl = (url, queryParams) => {
 
     const placeTemplate = (listItem) => {
         const template = `<div class="flex flex-column box flex-v-center">
-                    <a href="/brand/${listItem.id}" class="btn" style="background-color: #ffd401">
+                    <a href="/brand/${listItem.id}" class="btn" style="background-color: #cdfff5">
                         <div class="flex flex-column flex-v-center box-128">
                             <img class="item-icon" src="images/${listItem.icon}" alt="${listItem.name}">
                             ${listItem.name}

@@ -12,7 +12,7 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
         <title>${title}</title>
-
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <link rel="stylesheet" href="/css/main.css">
         <#list styles as styleSource>
             <link rel="stylesheet" href="${styleSource}">
@@ -41,6 +41,12 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/login">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cart">CART</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/order">ORDERS</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/search">SEARCH</a>

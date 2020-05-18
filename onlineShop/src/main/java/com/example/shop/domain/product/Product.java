@@ -1,10 +1,12 @@
 package com.example.shop.domain.product;
 
 import com.example.shop.domain.brand.Brand;
+import com.example.shop.domain.cart.CartStory;
 import com.example.shop.domain.category.Category;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Data
 @Builder
@@ -33,6 +35,11 @@ public class Product {
 
     @Column
     private int qty;
+
+//    @ManyToMany(mappedBy = "products")
+//    private Set<Cart> carts;
+    @OneToMany(mappedBy = "product")
+    private Set<CartStory> cartStories;
 
 
 }

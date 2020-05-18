@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer>,
                                            JpaSpecificationExecutor<Product> {
@@ -21,4 +23,6 @@ public interface ProductRepository extends JpaRepository<Product, Integer>,
     Page<Product> getByName(String name, Pageable pageable);
 
     Page<Product> getByBrand_Id(int id, Pageable pageable);
+
+    Product getById(int id);
 }

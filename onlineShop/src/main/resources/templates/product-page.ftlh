@@ -10,4 +10,17 @@ styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.co
         <p>Brand: ${product.brand.name}</p>
         <p>Category: ${product.category.name}</p>
     </div>
+    <form action="/cart/add" method="post" id="cart-form">
+        <#if _csrf??>
+            <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
+        </#if>
+        <div>
+            <label for="quantity">Quantity (between 1 and 10):</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
+            <button type="submit" name="value" value="${product.id}">Add to cart</button>
+        </div>
+        <div>
+            <a href="/cart" class="value-cell">Посмотреть корзину</a>
+        </div>
+    </form>
 </@main.renderWith>
