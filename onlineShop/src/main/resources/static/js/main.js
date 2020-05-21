@@ -68,7 +68,7 @@ const constructGetUrl = (url, queryParams) => {
     document.getElementById('loadPrev').hidden = true;
     const loadNextElement = document.getElementById('loadNext');
     if (loadNextElement !== null) {
-        loadNextElement.innerText = "Load more places";
+        loadNextElement.innerText = "Load more";
         loadNextElement.addEventListener('click', loadNextPlacesGenerator(loadNextElement, getCurrentPage()), {once: true});
     }
 

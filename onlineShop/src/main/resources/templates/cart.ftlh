@@ -1,9 +1,10 @@
 <#import "partials/main.ftlh" as main />
+<#import "/spring.ftl" as spring>
 <@main.renderWith scripts=["/js/main.js", "js/jquery-3.3.1.slim.min.js", "js/popper.min.js", "js/bootstrap.min.js", "https://kit.fontawesome.com/7174afae6d.js"]
 styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900&display=swap"]>
     </br>
     <div class="container">
-        <h1>Your cart</h1>
+        <h1><@spring.message "title.cart"/></h1>
         <#if cartItems??>
             <#list cartItems as item>
                  <div class="flex flex-column box flex-v-center">
@@ -12,11 +13,11 @@ styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts
                              <img src="/images/productImage/${item.image}" class="item-icon" alt="${item.id}" width="100" height="111">
                          </div>
                      </a>
-                    <p>Name: ${item.name}</p>
-                    <p>Price: ${item.price}</p>
-                    <p>Brand: ${item.brand.name}</p>
-                    <p>Category: ${item.category.name}</p>
-                    <p>Quantity: ${item.qty}</p>
+                    <p><@spring.message "name"/>: ${item.name}</p>
+                    <p><@spring.message "price"/>: ${item.price}</p>
+                    <p><@spring.message "brand"/>: ${item.brand.name}</p>
+                    <p><@spring.message "category"/>: ${item.category.name}</p>
+                    <p><@spring.message "quantity"/>: ${item.qty}</p>
                  </div>
                 </br>
                 <form action="/cart/remove" method="post" id="cart-form">
@@ -24,9 +25,9 @@ styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts
                         <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
                     </#if>
                     <div>
-                        <label for="quantity">Quantity:</label>
+                        <label for="quantity"><@spring.message "quantity"/>:</label>
                         <input type="number" id="quantity" name="quantity" value="1" min="1">
-                        <button type="submit" name="value" value="${item.id}">Remove</button>
+                        <button type="submit" name="value" value="${item.id}"><@spring.message "remove"/></button>
                     </div>
                 </form>
                 <form action="/cart/add" method="post" id="cart-form">
@@ -34,9 +35,9 @@ styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts
                         <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
                     </#if>
                     <div>
-                        <label for="quantity">Quantity (between 1 and 10):</label>
+                        <label for="quantity"><@spring.message "quantity"/> (<@spring.message "between"/>):</label>
                         <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
-                        <button type="submit" name="value" value="${item.id}">Add to cart</button>
+                        <button type="submit" name="value" value="${item.id}"><@spring.message "cart.add"/></button>
                     </div>
                 </form>
                 <form action="/order/buy" method="post" id="cart-form">
@@ -44,9 +45,9 @@ styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts
                         <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
                     </#if>
                     <div>
-                        <label for="quantity">Quantity:</label>
+                        <label for="quantity"><@spring.message "quantity"/>:</label>
                         <input type="number" id="quantity" name="quantity" value="1" min="1">
-                        <button type="submit" name="value" value="${item.id}">Buy</button>
+                        <button type="submit" name="value" value="${item.id}"><@spring.message "buy"/></button>
                     </div>
                 </form>
             </#list>
@@ -55,14 +56,14 @@ styles=["css/bootstrap.min.css", "css/style.css", "css/main.css", "https://fonts
                 <#if _csrf??>
                     <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
                 </#if>
-                <button>Clear cart</button>
+                <button><@spring.message "cart.clear"/></button>
             </form>
         <#else>
-            <p>There is nothing here!</p>
+            <p><@spring.message "cart.info"/></p>
         </#if>
         </br>
         <div>
-            <a href="/">Back</a>
+            <a href="/"><@spring.message "main.page"/></a>
         </div>
     </div>
 </@main.renderWith>

@@ -1,16 +1,16 @@
 <#import "partials/main.ftlh" as main />
-
+<#import "/spring.ftl" as spring>
 <@main.renderWith scripts=["/product.js", "js/jquery-3.3.1.slim.min.js", "js/popper.min.js", "js/bootstrap.min.js", "https://kit.fontawesome.com/7174afae6d.js"]
 styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900&display=swap"]>
     <div class="card mb-3 flex flex-column box flex-v-center" style="text-align:center">
         <img src="/images/productImage/${product.image}" class="item-icon" alt="${product.id}">
-        <h3>Name: ${product.name}</h3>
-        <p>Price: ${product.price}</p>
-        <p>Quantity: ${product.qty}</p>
-        <p>Brand: ${product.brand.name}</p>
-        <p>Category: ${product.category.name}</p>
+        <h3><@spring.message "name"/>: ${product.name}</h3>
+        <p><@spring.message "price"/>: ${product.price}</p>
+        <p><@spring.message "quantity"/>: ${product.qty}</p>
+        <p><@spring.message "brand"/>: ${product.brand.name}</p>
+        <p><@spring.message "category"/>: ${product.category.name}</p>
         </br>
-        <label>-- Comment block -- </label>
+        <label>-- <@spring.message "title.comment"/> -- </label>
         <#list product.review as listItem>
             <div class="flex flex-column box flex-v-center">
                     <div class="flex flex-column flex-v-center box-128">
@@ -25,12 +25,12 @@ styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.co
             <input type="hidden" name="${(_csrf.parameterName)!'csrf'}" value="${(_csrf.token)!'--no-token--'}"/>
         </#if>
         <div>
-            <label for="quantity">Quantity (between 1 and 10):</label>
+            <label for="quantity"><@spring.message "quantity"/> (<@spring.message "between"/>):</label>
             <input type="number" id="quantity" name="quantity" value="1" min="1" max="10">
-            <button type="submit" name="value" value="${product.id}">Add to cart</button>
+            <button type="submit" name="value" value="${product.id}"><@spring.message "cart.add"/></button>
         </div>
         <div>
-            <a href="/cart" class="value-cell">Show cart</a>
+            <a href="/cart" class="value-cell"><@spring.message "cart.show"/></a>
         </div>
     </form>
 </@main.renderWith>

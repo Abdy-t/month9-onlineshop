@@ -67,6 +67,7 @@ public class MainController {
     public String getSearchPage(Model model, Pageable pageable, HttpServletRequest uriBuilder) {
         return "search";
     }
+
     @GetMapping("/brands")
     public String brands(Model model, Pageable pageable, HttpServletRequest uriBuilder) {
         Page<BrandDTO> items = brandService.getBrands(pageable);

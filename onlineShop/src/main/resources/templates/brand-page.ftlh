@@ -1,5 +1,5 @@
 <#import "partials/main.ftlh" as main />
-
+<#import "/spring.ftl" as spring>
 <@main.renderWith scripts=["js/product.js", "/js/jquery-3.3.1.slim.min.js", "/js/popper.min.js", "/js/bootstrap.min.js", "https://kit.fontawesome.com/7174afae6d.js"]
 styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.com/css?family=Raleway:400,600,700,800,900&display=swap"]>
     <div class="card mb-3" style="text-align:center">
@@ -14,8 +14,8 @@ styles=["/css/bootstrap.min.css", "/css/style.css", "https://fonts.googleapis.co
                         <img src="/images/productImage/${listItem.image}" class="item-icon" alt="${listItem.id}" width="100" height="111">
                     </div>
                 </a>
-                <p>Name: ${listItem.name}</p>
-                <p>Price: ${listItem.price}</p>
+                <p><@spring.message "name"/>: ${listItem.name}</p>
+                <p><@spring.message "price"/>: ${listItem.price}</p>
             </div>
         </#list>
     </div>
